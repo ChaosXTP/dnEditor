@@ -53,6 +53,9 @@
             // 
             this.btnRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRight.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRight.ForeColor = System.Drawing.Color.White;
             this.btnRight.Location = new System.Drawing.Point(3, 3);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(248, 23);
@@ -65,6 +68,10 @@
             // 
             this.btnLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLeft.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeft.ForeColor = System.Drawing.Color.White;
             this.btnLeft.Location = new System.Drawing.Point(4, 3);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(268, 23);
@@ -157,6 +164,10 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.ForeColor = System.Drawing.Color.White;
             this.btnOk.Location = new System.Drawing.Point(383, 334);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(81, 28);
@@ -168,6 +179,10 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(470, 334);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 28);
@@ -179,6 +194,10 @@
             // btnTop
             // 
             this.btnTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTop.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTop.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTop.ForeColor = System.Drawing.Color.White;
             this.btnTop.Location = new System.Drawing.Point(12, 331);
             this.btnTop.Name = "btnTop";
             this.btnTop.Size = new System.Drawing.Size(62, 23);
@@ -190,6 +209,10 @@
             // btnUp
             // 
             this.btnUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUp.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUp.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.ForeColor = System.Drawing.Color.White;
             this.btnUp.Location = new System.Drawing.Point(80, 331);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(62, 23);
@@ -201,6 +224,10 @@
             // btnDown
             // 
             this.btnDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDown.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDown.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.ForeColor = System.Drawing.Color.White;
             this.btnDown.Location = new System.Drawing.Point(148, 331);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(62, 23);
@@ -212,6 +239,10 @@
             // btnBottom
             // 
             this.btnBottom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBottom.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBottom.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBottom.ForeColor = System.Drawing.Color.White;
             this.btnBottom.Location = new System.Drawing.Point(216, 331);
             this.btnBottom.Name = "btnBottom";
             this.btnBottom.Size = new System.Drawing.Size(62, 23);
@@ -224,6 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(557, 369);
             this.Controls.Add(this.btnBottom);
             this.Controls.Add(this.btnDown);

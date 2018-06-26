@@ -50,63 +50,77 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(7, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.Size = new System.Drawing.Size(79, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Handler type";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 42);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(7, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Catch type";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 69);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(7, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Try start";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 96);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(7, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(47, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Try end";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 123);
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(7, 122);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.Size = new System.Drawing.Size(77, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "Handler start";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 150);
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(7, 149);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.Size = new System.Drawing.Size(76, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "Handler end";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 177);
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(7, 176);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.Size = new System.Drawing.Size(57, 16);
             this.label7.TabIndex = 0;
             this.label7.Text = "Filter start";
             // 
@@ -120,9 +134,9 @@
             "Fault",
             "Filter",
             "Finally"});
-            this.cbHandlerType.Location = new System.Drawing.Point(84, 12);
+            this.cbHandlerType.Location = new System.Drawing.Point(89, 12);
             this.cbHandlerType.Name = "cbHandlerType";
-            this.cbHandlerType.Size = new System.Drawing.Size(289, 21);
+            this.cbHandlerType.Size = new System.Drawing.Size(284, 21);
             this.cbHandlerType.TabIndex = 1;
             this.cbHandlerType.SelectedIndexChanged += new System.EventHandler(this.cbHandlerType_SelectedIndexChanged);
             // 
@@ -131,45 +145,45 @@
             this.cbCatchType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cbCatchType.Enabled = false;
             this.cbCatchType.FormattingEnabled = true;
-            this.cbCatchType.Location = new System.Drawing.Point(84, 39);
+            this.cbCatchType.Location = new System.Drawing.Point(89, 39);
             this.cbCatchType.Name = "cbCatchType";
-            this.cbCatchType.Size = new System.Drawing.Size(289, 20);
+            this.cbCatchType.Size = new System.Drawing.Size(284, 20);
             this.cbCatchType.TabIndex = 1;
             // 
             // cbTryStart
             // 
             this.cbTryStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTryStart.FormattingEnabled = true;
-            this.cbTryStart.Location = new System.Drawing.Point(84, 66);
+            this.cbTryStart.Location = new System.Drawing.Point(89, 66);
             this.cbTryStart.Name = "cbTryStart";
-            this.cbTryStart.Size = new System.Drawing.Size(289, 21);
+            this.cbTryStart.Size = new System.Drawing.Size(284, 21);
             this.cbTryStart.TabIndex = 1;
             // 
             // cbTryEnd
             // 
             this.cbTryEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTryEnd.FormattingEnabled = true;
-            this.cbTryEnd.Location = new System.Drawing.Point(84, 93);
+            this.cbTryEnd.Location = new System.Drawing.Point(89, 93);
             this.cbTryEnd.Name = "cbTryEnd";
-            this.cbTryEnd.Size = new System.Drawing.Size(289, 21);
+            this.cbTryEnd.Size = new System.Drawing.Size(284, 21);
             this.cbTryEnd.TabIndex = 1;
             // 
             // cbHandlerStart
             // 
             this.cbHandlerStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHandlerStart.FormattingEnabled = true;
-            this.cbHandlerStart.Location = new System.Drawing.Point(84, 120);
+            this.cbHandlerStart.Location = new System.Drawing.Point(89, 120);
             this.cbHandlerStart.Name = "cbHandlerStart";
-            this.cbHandlerStart.Size = new System.Drawing.Size(289, 21);
+            this.cbHandlerStart.Size = new System.Drawing.Size(284, 21);
             this.cbHandlerStart.TabIndex = 1;
             // 
             // cbHandlerEnd
             // 
             this.cbHandlerEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHandlerEnd.FormattingEnabled = true;
-            this.cbHandlerEnd.Location = new System.Drawing.Point(84, 147);
+            this.cbHandlerEnd.Location = new System.Drawing.Point(89, 147);
             this.cbHandlerEnd.Name = "cbHandlerEnd";
-            this.cbHandlerEnd.Size = new System.Drawing.Size(289, 21);
+            this.cbHandlerEnd.Size = new System.Drawing.Size(284, 21);
             this.cbHandlerEnd.TabIndex = 1;
             // 
             // cbFilterStart
@@ -177,13 +191,17 @@
             this.cbFilterStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterStart.Enabled = false;
             this.cbFilterStart.FormattingEnabled = true;
-            this.cbFilterStart.Location = new System.Drawing.Point(84, 174);
+            this.cbFilterStart.Location = new System.Drawing.Point(89, 174);
             this.cbFilterStart.Name = "cbFilterStart";
-            this.cbFilterStart.Size = new System.Drawing.Size(289, 21);
+            this.cbFilterStart.Size = new System.Drawing.Size(284, 21);
             this.cbFilterStart.TabIndex = 1;
             // 
             // btnOk
             // 
+            this.btnOk.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.ForeColor = System.Drawing.Color.White;
             this.btnOk.Location = new System.Drawing.Point(130, 214);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
@@ -194,6 +212,10 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(211, 214);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -217,6 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(421, 247);
             this.Controls.Add(this.btnCatchType);
             this.Controls.Add(this.btnCancel);

@@ -641,5 +641,10 @@ namespace dnEditor.Forms
                     break;
             }
         }
+
+        private void EditInstructionForm_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

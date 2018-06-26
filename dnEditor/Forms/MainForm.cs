@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using dnEditor.Handlers;
@@ -10,20 +12,24 @@ using dnEditor.Properties;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using dnlib.DotNet.Writer;
+using ScintillaNET;
 using ExceptionHandler = dnlib.DotNet.Emit.ExceptionHandler;
 
 namespace dnEditor.Forms
 {
     public partial class MainForm : Form, ITreeView, ITreeMenu
     {
+        private int maxLineNumberCharLength;
         public static ListView ListAnalysis;
         public static Label LblAnalysis;
         public static bool HandleExpand = true;
         private static SearchType _searchType;
 
+        public static WebClient client = new WebClient();
         public static DataGridView DgBody;
         public static DataGridView DgVariables;
-        public static RichTextBox RtbILSpy;
+        public static Scintilla RtbILSpy;
+        public static RichTextBox RtbMeme;
         public static CurrentAssembly CurrentAssembly;
         public static TabControl TabControl;
         public static int EditedInstructionIndex;
@@ -57,7 +63,8 @@ namespace dnEditor.Forms
 
             DgBody = dgBody;
             DgVariables = dgVariables;
-            RtbILSpy = rtbILSpy;
+            RtbILSpy = scintilla1;
+            RtbMeme = richTextBox1;
 
             TreeView = treeView1;
             ToolStrip = toolStrip1;
@@ -246,10 +253,7 @@ namespace dnEditor.Forms
 
         private void rtbILSpy_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!rtbILSpy.AutoWordSelection)
-            {
-                rtbILSpy.AutoWordSelection = false;
-            }
+
         }
 
         private void lblMagicRegex_Click(object sender, EventArgs e)
@@ -290,7 +294,10 @@ Coded, maintained and organized by ViRb3 (virb3e@gmail.com)
 GitHub project page: https://github.com/ViRb3/dnEditor
 
 Copyright (C) 2014-2015 ViRb3
-Licenses can be found in the root directory of the project.", "About dnEditor");
+Licenses can be found in the root directory of the project.
+
+Edited and Redesigned By Todd Howard#5858.
+", "About dnEditor");
         }
 
         public void HandleToolStripItemsState()
@@ -1001,5 +1008,122 @@ Licenses can be found in the root directory of the project.", "About dnEditor");
         }
 
         #endregion Search
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+            var alphaChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var numericChars = "0123456789";
+            var accentedChars = "ŠšŒœŸÿÀàÁáÂâÃãÄäÅåÆæÇçÈèÉéÊêËëÌìÍíÎîÏïÐðÑñÒòÓóÔôÕõÖØøÙùÚúÛûÜüÝýÞþßö";
+
+            scintilla1.StyleResetDefault();
+            scintilla1.Styles[Style.Default].Font = "Consolas";
+            try
+            {
+                scintilla1.Styles[Style.Default].Font = "Hasklig";
+            }
+            catch (Exception eX)
+            {
+                string data = eX.Message;
+                data = null;
+            }
+            scintilla1.Styles[Style.Default].Size = 9;
+
+            scintilla1.Styles[Style.Default].BackColor = Color.FromArgb(28, 28, 28);
+            scintilla1.Styles[Style.Default].ForeColor = Color.FromArgb(255, 255, 255);
+
+            scintilla1.StyleClearAll();
+
+            scintilla1.SetFoldMarginColor(true, Color.FromArgb(28, 28, 28));
+            scintilla1.SetFoldMarginHighlightColor(true, Color.FromArgb(28, 28, 28));
+
+            scintilla1.Styles[Style.LineNumber].BackColor = Color.FromArgb(28, 28, 28);
+            scintilla1.Styles[Style.LineNumber].ForeColor = Color.LightBlue;
+
+            scintilla1.Styles[Style.Lua.Comment].ForeColor = Color.Green;
+            scintilla1.Styles[Style.Lua.CommentLine].ForeColor = Color.Green;
+            scintilla1.Styles[Style.Lua.Number].ForeColor = Color.LightSeaGreen;
+            scintilla1.Styles[Style.Lua.Word].ForeColor = Color.FromArgb(86, 156, 214);
+            scintilla1.Styles[Style.Lua.Word2].ForeColor = Color.FromArgb(189, 99, 197);
+            scintilla1.Styles[Style.Lua.Word3].ForeColor = Color.PaleGreen;
+            scintilla1.Styles[Style.Lua.Word4].ForeColor = Color.DodgerBlue;
+            scintilla1.Styles[Style.Lua.String].ForeColor = Color.FromArgb(214, 157, 133);
+            scintilla1.Styles[Style.Lua.Character].ForeColor = Color.FromArgb(214, 157, 133);
+            scintilla1.Styles[Style.Lua.LiteralString].ForeColor = Color.FromArgb(233, 213, 133);
+            scintilla1.Styles[Style.Lua.Operator].ForeColor = Color.LightGray;
+            scintilla1.Styles[Style.Lua.Preprocessor].ForeColor = Color.Maroon;
+
+            scintilla1.SetSelectionBackColor(true, Color.FromArgb(55, 111, 204));
+
+            scintilla1.Lexer = Lexer.Cpp;
+            scintilla1.WordChars = alphaChars + numericChars + accentedChars;
+
+
+            scintilla1.SetKeywords(0, client.DownloadString("https://pastebin.com/raw/ujNNYc6c"));
+            scintilla1.SetKeywords(1, client.DownloadString("https://pastebin.com/raw/dz9F3SPD"));
+
+
+            scintilla1.SetProperty("fold", "1");
+            scintilla1.SetProperty("fold.compact", "1");
+
+            scintilla1.Margins[2].Type = MarginType.BackColor;
+            scintilla1.Margins[2].Mask = Marker.MaskFolders;
+            scintilla1.Margins[2].Sensitive = true;
+            scintilla1.Margins[2].Width = 20;
+
+            for (int i = 25; i <= 31; i++)
+            {
+                scintilla1.Markers[i].SetForeColor(Color.Black);
+                scintilla1.Markers[i].SetBackColor(Color.Gray);
+            }
+
+            scintilla1.Styles[Style.LineNumber].BackColor = Color.FromArgb(28, 28, 28);
+            scintilla1.Styles[Style.LineNumber].ForeColor = Color.LightBlue;
+
+            scintilla1.Markers[Marker.Folder].Symbol = MarkerSymbol.BoxPlus;
+            scintilla1.Markers[Marker.FolderOpen].Symbol = MarkerSymbol.BoxMinus;
+            scintilla1.Markers[Marker.FolderEnd].Symbol = MarkerSymbol.BoxPlusConnected;
+            scintilla1.Markers[Marker.FolderMidTail].Symbol = MarkerSymbol.TCorner;
+            scintilla1.Markers[Marker.FolderOpenMid].Symbol = MarkerSymbol.BoxMinusConnected;
+            scintilla1.Markers[Marker.FolderSub].Symbol = MarkerSymbol.VLine;
+            scintilla1.Markers[Marker.FolderTail].Symbol = MarkerSymbol.LCorner;
+
+
+            scintilla1.AutomaticFold = (AutomaticFold.Show | AutomaticFold.Click | AutomaticFold.Change);
+            scintilla1.Styles[Style.LineNumber].Font = "Hasklig";
+            scintilla1.TabWidth = 4;
+            scintilla1.UseTabs = false;
+            scintilla1.CaretLineBackColor = Color.FromArgb(35, 34, 34);
+            scintilla1.CaretLineVisible = true;
+            scintilla1.TextChanged += scintilla1_TextChanged;
+        }
+
+        private void scintilla1_TextChanged(object sender, EventArgs e)
+        {
+            var maxLineNumberCharLength = scintilla1.Lines.Count.ToString().Length;
+            if (maxLineNumberCharLength == this.maxLineNumberCharLength)
+            {
+                return;
+            }
+
+            const int padding = 2;
+            scintilla1.Margins[0].Width = scintilla1.TextWidth(Style.LineNumber, new string('9', maxLineNumberCharLength + 1)) + padding;
+            this.maxLineNumberCharLength = maxLineNumberCharLength;
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgBody_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }

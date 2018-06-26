@@ -35,9 +35,9 @@ namespace dnEditor.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.dgBody = new System.Windows.Forms.DataGridView();
@@ -59,7 +59,7 @@ namespace dnEditor.Forms
             this.emptyVariableMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.createNewVariableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.rtbILSpy = new System.Windows.Forms.RichTextBox();
+            this.scintilla1 = new ScintillaNET.Scintilla();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.lblAnalysis = new System.Windows.Forms.Label();
             this.listAnalysis = new System.Windows.Forms.ListView();
@@ -123,6 +123,7 @@ namespace dnEditor.Forms
             this.exceptionHandlerMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgBody)).BeginInit();
             this.emptyBodyMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -151,6 +152,9 @@ namespace dnEditor.Forms
             this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeView1.ForeColor = System.Drawing.Color.White;
             this.treeView1.HideSelection = false;
             this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageList2;
@@ -158,10 +162,11 @@ namespace dnEditor.Forms
             this.treeView1.Name = "treeView1";
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.ShowNodeToolTips = true;
-            this.treeView1.Size = new System.Drawing.Size(242, 393);
+            this.treeView1.Size = new System.Drawing.Size(249, 441);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterExpand);
             this.treeView1.NodeMouseHover += new System.Windows.Forms.TreeNodeMouseHoverEventHandler(this.treeView1_NodeMouseHover);
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView_NodeMouseClick);
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView_NodeMouseDoubleClick);
             this.treeView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeView_DragDrop);
@@ -241,9 +246,7 @@ namespace dnEditor.Forms
             this.dgBody.AllowUserToDeleteRows = false;
             this.dgBody.AllowUserToResizeColumns = false;
             this.dgBody.AllowUserToResizeRows = false;
-            this.dgBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgBody.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.dgBody.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgBody.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgBody.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -254,22 +257,24 @@ namespace dnEditor.Forms
             this.opcode,
             this.operand});
             this.dgBody.ContextMenuStrip = this.emptyBodyMenu;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgBody.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgBody.Location = new System.Drawing.Point(0, 0);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgBody.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgBody.Location = new System.Drawing.Point(3, 3);
             this.dgBody.Name = "dgBody";
             this.dgBody.ReadOnly = true;
             this.dgBody.RowHeadersVisible = false;
             this.dgBody.RowTemplate.Height = 16;
             this.dgBody.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgBody.Size = new System.Drawing.Size(554, 367);
+            this.dgBody.Size = new System.Drawing.Size(640, 404);
             this.dgBody.TabIndex = 1;
+            this.dgBody.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBody_CellContentClick);
             this.dgBody.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBody_CellDoubleClick);
             this.dgBody.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgBody_CellMouseDown);
             this.dgBody.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgBody_MouseClick);
@@ -347,8 +352,9 @@ namespace dnEditor.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(819, 399);
-            this.splitContainer1.SplitterDistance = 247;
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(916, 447);
+            this.splitContainer1.SplitterDistance = 255;
             this.splitContainer1.TabIndex = 2;
             // 
             // tabControl1
@@ -364,7 +370,7 @@ namespace dnEditor.Forms
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(562, 393);
+            this.tabControl1.Size = new System.Drawing.Size(654, 436);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -374,7 +380,7 @@ namespace dnEditor.Forms
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(554, 367);
+            this.tabPage1.Size = new System.Drawing.Size(646, 410);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "IL";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -385,7 +391,7 @@ namespace dnEditor.Forms
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(554, 367);
+            this.tabPage2.Size = new System.Drawing.Size(646, 410);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Variables";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -408,21 +414,21 @@ namespace dnEditor.Forms
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.dgVariables.ContextMenuStrip = this.emptyVariableMenu;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgVariables.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgVariables.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgVariables.Location = new System.Drawing.Point(0, 0);
             this.dgVariables.Name = "dgVariables";
             this.dgVariables.ReadOnly = true;
             this.dgVariables.RowHeadersVisible = false;
             this.dgVariables.RowTemplate.Height = 16;
             this.dgVariables.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgVariables.Size = new System.Drawing.Size(554, 367);
+            this.dgVariables.Size = new System.Drawing.Size(646, 410);
             this.dgVariables.TabIndex = 2;
             this.dgVariables.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVariables_CellDoubleClick);
             this.dgVariables.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgVariables_CellMouseDown);
@@ -471,30 +477,23 @@ namespace dnEditor.Forms
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.rtbILSpy);
+            this.tabPage4.Controls.Add(this.scintilla1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(554, 367);
+            this.tabPage4.Size = new System.Drawing.Size(646, 410);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "ILSpy";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // rtbILSpy
+            // scintilla1
             // 
-            this.rtbILSpy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbILSpy.BackColor = System.Drawing.SystemColors.Info;
-            this.rtbILSpy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbILSpy.DetectUrls = false;
-            this.rtbILSpy.Location = new System.Drawing.Point(3, 3);
-            this.rtbILSpy.Name = "rtbILSpy";
-            this.rtbILSpy.ReadOnly = true;
-            this.rtbILSpy.Size = new System.Drawing.Size(548, 361);
-            this.rtbILSpy.TabIndex = 0;
-            this.rtbILSpy.Text = "";
-            this.rtbILSpy.WordWrap = false;
-            this.rtbILSpy.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbILSpy_MouseDown);
+            this.scintilla1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintilla1.Location = new System.Drawing.Point(0, 0);
+            this.scintilla1.Name = "scintilla1";
+            this.scintilla1.ReadOnly = true;
+            this.scintilla1.Size = new System.Drawing.Size(646, 410);
+            this.scintilla1.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -503,7 +502,7 @@ namespace dnEditor.Forms
             this.tabPage5.Controls.Add(this.listAnalysis);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(554, 367);
+            this.tabPage5.Size = new System.Drawing.Size(646, 410);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Analysis";
             // 
@@ -528,7 +527,7 @@ namespace dnEditor.Forms
             this.listAnalysis.Location = new System.Drawing.Point(3, 31);
             this.listAnalysis.Name = "listAnalysis";
             this.listAnalysis.ShowGroups = false;
-            this.listAnalysis.Size = new System.Drawing.Size(548, 333);
+            this.listAnalysis.Size = new System.Drawing.Size(640, 376);
             this.listAnalysis.TabIndex = 0;
             this.listAnalysis.UseCompatibleStateImageBehavior = false;
             this.listAnalysis.View = System.Windows.Forms.View.Details;
@@ -539,7 +538,7 @@ namespace dnEditor.Forms
             this.tabPage3.Controls.Add(this.dgDetails);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(554, 367);
+            this.tabPage3.Size = new System.Drawing.Size(646, 410);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Details";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -562,21 +561,21 @@ namespace dnEditor.Forms
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgDetails.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgDetails.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgDetails.Location = new System.Drawing.Point(0, 0);
             this.dgDetails.Name = "dgDetails";
             this.dgDetails.ReadOnly = true;
             this.dgDetails.RowHeadersVisible = false;
             this.dgDetails.RowTemplate.Height = 16;
             this.dgDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgDetails.Size = new System.Drawing.Size(554, 367);
+            this.dgDetails.Size = new System.Drawing.Size(646, 410);
             this.dgDetails.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn9
@@ -789,6 +788,8 @@ namespace dnEditor.Forms
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNavigateBack,
             this.btnNavigateForward,
@@ -807,7 +808,7 @@ namespace dnEditor.Forms
             this.txtMagicRegex});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(843, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(940, 25);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -840,6 +841,7 @@ namespace dnEditor.Forms
             // 
             // btnOpen
             // 
+            this.btnOpen.ForeColor = System.Drawing.Color.White;
             this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
             this.btnOpen.ImageTransparentColor = System.Drawing.Color.Green;
             this.btnOpen.Name = "btnOpen";
@@ -850,6 +852,7 @@ namespace dnEditor.Forms
             // btnSave
             // 
             this.btnSave.Enabled = false;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
@@ -861,6 +864,7 @@ namespace dnEditor.Forms
             // 
             this.btnAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnAbout.ForeColor = System.Drawing.Color.White;
             this.btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("btnAbout.Image")));
             this.btnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAbout.Name = "btnAbout";
@@ -903,6 +907,7 @@ namespace dnEditor.Forms
             this.btnSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnSearch.Enabled = false;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearch.Name = "btnSearch";
@@ -923,6 +928,7 @@ namespace dnEditor.Forms
             // 
             // lblMagicRegex
             // 
+            this.lblMagicRegex.ForeColor = System.Drawing.Color.White;
             this.lblMagicRegex.Name = "lblMagicRegex";
             this.lblMagicRegex.Size = new System.Drawing.Size(77, 22);
             this.lblMagicRegex.Text = "Magic Regex:";
@@ -1200,14 +1206,27 @@ namespace dnEditor.Forms
             this.removeToolStripMenuItem1.Text = "Remove";
             this.removeToolStripMenuItem1.Click += new System.EventHandler(this.removeToolStripMenuItem1_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(831, 28);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(10, 10);
+            this.richTextBox1.TabIndex = 6;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.Visible = false;
+            // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(843, 439);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.ClientSize = new System.Drawing.Size(940, 487);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "dnEditor v0.76 Beta ~ViRb3";
+            this.ShowIcon = false;
+            this.Text = "dnEditor Dark";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgBody)).EndInit();
             this.emptyBodyMenu.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1311,7 +1330,6 @@ namespace dnEditor.Forms
         private ToolStripMenuItem removeToolStripMenuItem1;
         private ToolStripMenuItem createNewExceptionHandlerToolStripMenuItem;
         private TabPage tabPage4;
-        private RichTextBox rtbILSpy;
         private TabPage tabPage5;
         private Label lblAnalysis;
         private ListView listAnalysis;
@@ -1322,6 +1340,8 @@ namespace dnEditor.Forms
         private ToolStripButton btnNavigateBack;
         private ToolStripButton btnNavigateForward;
         private ToolStripSeparator toolStripSeparator13;
+        private ScintillaNET.Scintilla scintilla1;
+        private RichTextBox richTextBox1;
     }
 }
 

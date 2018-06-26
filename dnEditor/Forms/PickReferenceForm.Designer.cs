@@ -51,6 +51,9 @@
             this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.treeView1.ForeColor = System.Drawing.Color.White;
             this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageList2;
             this.treeView1.Location = new System.Drawing.Point(12, 35);
@@ -133,13 +136,18 @@
             // 
             // btnSelect
             // 
+            this.btnSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.btnSelect.Enabled = false;
+            this.btnSelect.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelect.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.ForeColor = System.Drawing.Color.White;
             this.btnSelect.Location = new System.Drawing.Point(12, 6);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(421, 23);
             this.btnSelect.TabIndex = 2;
             this.btnSelect.Text = "SELECT";
-            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.UseVisualStyleBackColor = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // treeMenu
@@ -154,7 +162,7 @@
             this.toolStripSeparator1,
             this.closeAssemblyToolStripMenuItem});
             this.treeMenu.Name = "treeMenu";
-            this.treeMenu.Size = new System.Drawing.Size(179, 170);
+            this.treeMenu.Size = new System.Drawing.Size(179, 148);
             this.treeMenu.Opened += new System.EventHandler(this.treeMenu_Opened);
             // 
             // goToEntryPointToolStripMenuItem
@@ -213,6 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(445, 509);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.treeView1);
