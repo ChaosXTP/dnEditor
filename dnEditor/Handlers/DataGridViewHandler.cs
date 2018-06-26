@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using dnEditor.Forms;
@@ -18,14 +19,20 @@ namespace dnEditor.Handlers
 
         public static void InitializeBody()
         {
-            MainForm.DgBody.Columns.GetColumnFromText("Index").DefaultCellStyle.ForeColor = DefaultColors.IndexTextColor;
+            MainForm.DgBody.Columns.GetColumnFromText("Index").DefaultCellStyle.ForeColor = Color.FromArgb(255, 255, 255);
             MainForm.DgBody.Columns.GetColumnFromText("OpCode").DefaultCellStyle.ForeColor =
                 DefaultColors.OpCodeTextColor;
-            MainForm.DgBody.DefaultCellStyle.BackColor = DefaultColors.RowColor;
+            MainForm.DgBody.Columns.GetColumnFromText("Offset").DefaultCellStyle.ForeColor = Color.FromArgb(255, 255, 255);
+            MainForm.DgBody.Columns.GetColumnFromText("Operand").DefaultCellStyle.ForeColor = Color.FromArgb(255, 255, 255);
+            MainForm.DgBody.DefaultCellStyle.BackColor = Color.FromArgb(28, 28, 28);
 
-            MainForm.DgVariables.DefaultCellStyle.BackColor = DefaultColors.RowColor;
+            MainForm.DgVariables.DefaultCellStyle.BackColor = Color.FromArgb(28, 28, 28);
             MainForm.DgVariables.Columns.GetColumnFromText("Index").DefaultCellStyle.ForeColor =
-                DefaultColors.IndexTextColor;
+                Color.FromArgb(255, 255, 255);
+            MainForm.DgVariables.Columns.GetColumnFromText("Variable name").DefaultCellStyle.ForeColor =
+                Color.FromArgb(255, 255, 255);
+            MainForm.DgVariables.Columns.GetColumnFromText("Variable type").DefaultCellStyle.ForeColor =
+                Color.FromArgb(255, 255, 255);
         }
 
         public static void SelectTab()
