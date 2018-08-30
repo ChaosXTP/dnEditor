@@ -1,4 +1,4 @@
-# dnEditor
+# dnEditor - Modified Dark Theme
 
 A .NET assembly editor based on dnlib.
 
